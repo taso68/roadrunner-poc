@@ -16,4 +16,4 @@ services:
     ports:
       - 9002:80
     volumes:
-      - ./order-app/grpc:/var/www/html
+      - ./order-app/grpc-server:/var/www/html
