@@ -2,8 +2,8 @@ version: '3'
 rpc:
     listen: 'tcp://127.0.0.1:6001'
 server:
-    command: 'php psr-worker.php'
-    relay: pipes
+    command: "php ./vendor/bin/rr-worker start --relay-dsn unix:///var/run/rr-relay.sock"
+    relay: "unix:///var/run/rr-relay.sock"
 http:
     address: '0.0.0.0:8080'
     middleware:

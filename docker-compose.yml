@@ -1,13 +1,4 @@
 services:
-  product_app_grpc:
-    container_name: 'product_app_grpc'
-    build:
-      context: .
-      dockerfile: Dockerfile-roadrunner
-    ports:
-      - 9001:80
-    volumes:
-      - ./product-app/grpc:/var/www/html
   order_app_grpc:
     container_name: 'order_app_grpc'
     build:

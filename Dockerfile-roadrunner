@@ -9,5 +9,6 @@ COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+CMD bash -c "composer install"
 
 CMD rr serve -c /var/www/html/.rr.yaml
