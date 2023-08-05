@@ -7,7 +7,6 @@ use GRPC\Pinger\PingerInterface;
 use GRPC\Pinger\PingRequest;
 use GRPC\Pinger\PingResponse;
 use Spiral\RoadRunner\GRPC;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Pinger implements PingerInterface
 {

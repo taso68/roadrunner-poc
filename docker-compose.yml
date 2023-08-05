@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile-roadrunner
     ports:
-      - 9002:80
+      - 88:88
+      - 2112:2112
     volumes:
       - ./order-app/grpc-server:/var/www/html

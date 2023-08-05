@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class PingRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string url = 1;</code>
+     * Generated from protobuf field <code>int32 url = 1;</code>
      */
-    protected $url = '';
+    protected $url = 0;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class PingRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $url
+     *     @type int $url
      * }
      */
     public function __construct($data = NULL) {
@@ -33,8 +33,8 @@ class PingRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string url = 1;</code>
-     * @return string
+     * Generated from protobuf field <code>int32 url = 1;</code>
+     * @return int
      */
     public function getUrl()
     {
@@ -42,13 +42,13 @@ class PingRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string url = 1;</code>
-     * @param string $var
+     * Generated from protobuf field <code>int32 url = 1;</code>
+     * @param int $var
      * @return $this
      */
     public function setUrl($var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkInt32($var);
         $this->url = $var;
 
         return $this;

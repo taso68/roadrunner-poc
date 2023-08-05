@@ -1,14 +1,12 @@
 version: '3'
-rpc:
-    listen: 'tcp://127.0.0.1:6001'
 server:
   command: "php grpc-worker.php"
 grpc:
-  listen: "tcp://127.0.0.1:9001"
+  listen: "tcp://127.0.0.1:88"
   pool:
     allocate_timeout: 5s
   proto:
     - "proto/pinger.proto"
 
-#metrics:
-#    address: '127.0.0.1:2112'
+metrics:
+    address: 127.0.0.1:2112
