@@ -2,10 +2,19 @@ services:
   order_app_grpc:
     container_name: 'order_app_grpc'
     build:
-      context: .
+      context: ./.dockerfiles/roadrunner
       dockerfile: Dockerfile-roadrunner
     ports:
       - 88:88
       - 2112:2112
     volumes:
       - ./order-app/grpc-server:/var/www/html
+  order_app_api:
+    container_name: 'order_app_api'
+    build:
+      context: ./.dockerfiles
+      dockerfile: Dockerfile
+    ports:
+      - 9001:80
+    volumes:
+      - "./order-app/api:/var/www/html"
