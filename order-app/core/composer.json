@@ -1,0 +1,21 @@
+{
+    "name": "taso/order-core",
+    "description": "Core of order package",
+    "type": "library",
+    "require": {
+        "php": "8.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Taso\\OrderCore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "taso68",
+            "email": "lazar.taso@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

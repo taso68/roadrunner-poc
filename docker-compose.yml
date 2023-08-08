@@ -1,14 +1,14 @@
 services:
-  order_app_grpc:
-    container_name: 'order_app_grpc'
-    build:
-      context: ./.dockerfiles/roadrunner
-      dockerfile: Dockerfile-roadrunner
-    ports:
-      - 88:88
-      - 2112:2112
-    volumes:
-      - ./order-app/grpc-server:/var/www/html
+#  order_app_grpc:
+#    container_name: 'order_app_grpc'
+#    build:
+#      context: ./.dockerfiles/roadrunner
+#      dockerfile: Dockerfile-roadrunner
+#    ports:
+#      - 90:88
+#      - 2112:2112
+#    volumes:
+#      - ./order-app/grpc-server:/var/www/html
   order_app_api:
     container_name: 'order_app_api'
     build:
@@ -18,3 +18,54 @@ services:
       - 9001:80
     volumes:
       - "./order-app/api:/var/www/html"
+  user_app_api:
+    container_name: 'user_app_api'
+    build:
+      context: ./.dockerfiles
+      dockerfile: Dockerfile
+    ports:
+      - 9002:80
+    volumes:
+      - "./user-app/api:/var/www/html"
+  user_app_grpc:
+    container_name: 'user_app_grpc'
+    build:
+      context: ./.dockerfiles/roadrunner
+      dockerfile: Dockerfile-roadrunner
+    ports:
+      - 2000:2000
+    volumes:
+      - ./user-app/grpc-server:/var/www/html
+#  mysql:
+#    image: mysql:5.7.32
+#    container_name: mysql
+#    tty: true
+#    ports:
+#      - "9003:3306"
+#    environment:
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+#      SERVICE_TAGS: dev
+#      SERVICE_NAME: mysql
+#    volumes:
+#      - "./.data/mysql:/var/lib/mysql"
+#    command: mysqld --sql-mode="" --max_connections=1000 --max_allowed_packet=325058560 --wait_timeout=28800 --interactive_timeout=28800 --user=root
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+#      interval: 2s
+#      timeout: 10s
+#      start_period: 3s
+#      retries: 5
+#
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin:latest
+#    container_name: admin
+#    ports:
+#      - "9022:80"
+#    environment:
+#      UPLOAD_LIMIT: 2G
+#      PMA_HOST: "mysql"
+#      PMA_USER: "root"
+#      PMA_PASSWORD: ""
+#      PMA_PORT: 3306
+#    depends_on:
+#      - mysql
