@@ -2,8 +2,9 @@ syntax = "proto3";
 
 option php_namespace = "GRPC\\UserService";
 option php_metadata_namespace = "GRPC\\GPBMetadata";
+option php_generic_services = true;
 
-package test;
+package grpc.user;
 
 service UserService {
     rpc getUserByToken(GetUserByTokenRequest) returns (UserResponse) {}

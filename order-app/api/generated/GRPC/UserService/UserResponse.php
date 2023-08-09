@@ -9,26 +9,26 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>test.UserResponse</code>
+ * Generated from protobuf message <code>user.UserResponse</code>
  */
 class UserResponse extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>int32 id = 1;</code>
      */
-    private $id = 0;
+    protected $id = 0;
     /**
      * Generated from protobuf field <code>string name = 2;</code>
      */
-    private $name = '';
+    protected $name = '';
     /**
      * Generated from protobuf field <code>string email = 3;</code>
      */
-    private $email = '';
+    protected $email = '';
     /**
      * Generated from protobuf field <code>string createdAt = 4;</code>
      */
-    private $createdAt = '';
+    protected $createdAt = '';
 
     /**
      * Constructor.

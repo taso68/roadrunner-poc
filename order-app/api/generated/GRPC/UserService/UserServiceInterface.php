@@ -9,7 +9,7 @@ use Spiral\RoadRunner\GRPC;
 interface UserServiceInterface extends GRPC\ServiceInterface
 {
     // GRPC specific service name.
-    public const NAME = "test.UserService";
+    public const NAME = "user.UserService";
 
     /**
     * @param GRPC\ContextInterface $ctx

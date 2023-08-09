@@ -9,14 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>test.GetUserByTokenRequest</code>
+ * Generated from protobuf message <code>user.GetUserByTokenRequest</code>
  */
 class GetUserByTokenRequest extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>string token = 1;</code>
      */
-    private $token = '';
+    protected $token = '';
 
     /**
      * Constructor.

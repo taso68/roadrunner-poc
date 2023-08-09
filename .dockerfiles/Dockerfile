@@ -37,16 +37,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install opcache \
     && docker-php-source delete \
+    && pecl install protobuf \
+    && docker-php-ext-enable protobuf \
     && pecl install grpc \
     && docker-php-ext-enable grpc \
-    && pecl install protobuf \
     && docker-php-ext-install sockets
-
-# install node js
-RUN curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
-RUN apt-get install -y nodejs
-RUN mkdir /root/.npm
-RUN chmod -R 777 /root/.npm
 
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 

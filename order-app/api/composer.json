@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "grpc/grpc": "^1.36",
+        "ext-grpc": "*",
+        "google/protobuf": "^3.24",
+        "grpc/grpc": "^1.52",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
