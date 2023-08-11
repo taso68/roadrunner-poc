@@ -3,9 +3,6 @@ FROM php:8.2-apache-buster
 
 USER root
 
-WORKDIR /var/www/html
-
-
 RUN apt-get update && apt-get install -y \
         libpng-dev \
         libjpeg-dev \
@@ -21,8 +18,9 @@ RUN apt-get update && apt-get install -y \
         zip \
         curl \
         unzip \
+        cmake \
+        git \
         libtool \
-        make \
         gcc \
         protobuf-compiler \
     && docker-php-ext-configure gd --with-freetype --with-jpeg=/usr/include/ --enable-gd \
@@ -37,11 +35,23 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install opcache \
     && docker-php-source delete \
-    && pecl install protobuf \
-    && docker-php-ext-enable protobuf \
-    && pecl install grpc \
-    && docker-php-ext-enable grpc \
     && docker-php-ext-install sockets
+
+#Installing grpc and enabling php ext
+RUN pecl install protobuf && docker-php-ext-enable protobuf
+
+#Installing grpc and enabling php ext
+RUN pecl install grpc && docker-php-ext-enable grpc
+
+# Clone the gRPC repository and its submodules
+RUN git clone -b v1.57.x --depth 1 https://github.com/grpc/grpc /grpc
+RUN cd /grpc && git submodule update --init
+
+# Build the gRPC components, including the grpc_php_plugin
+# Plugin loc /grpc/cmake/build/grpc_php_plugin
+RUN mkdir -p /grpc/cmake/build
+RUN cd /grpc/cmake/build && cmake ../.. && make grpc_php_plugin
+RUN chmod +x /grpc/cmake/build/grpc_php_plugin
 
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
