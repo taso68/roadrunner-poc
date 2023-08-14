@@ -1,7 +1,7 @@
 <?php
 
+use App\grpc\UserServiceServer;
 use GRPC\UserService\UserServiceInterface;
-use GRPC\UserServiceServer;
 use Spiral\RoadRunner\GRPC\Server;
 use Spiral\RoadRunner\Worker;
 

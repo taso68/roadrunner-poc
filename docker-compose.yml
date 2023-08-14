@@ -18,20 +18,26 @@ services:
       - 9001:80
     volumes:
       - "./order-app/api:/var/www/html"
-  user_app_api:
-    container_name: 'user_app_api'
-    build:
-      context: ./.dockerfiles
-      dockerfile: Dockerfile
-    ports:
-      - 9002:80
-    volumes:
-      - "./user-app/api:/var/www/html"
+    networks:
+      - grpc-network
+#  user_app_api:
+#    container_name: 'user_app_api'
+#    build:
+#      context: ./.dockerfiles
+#      dockerfile: Dockerfile
+#    ports:
+#      - 9002:80
+#    volumes:
+#      - "./user-app/api:/var/www/html"
+#    networks:
+#      - grpc-network
   user_app_grpc:
     container_name: 'user_app_grpc'
     build:
       context: ./.dockerfiles/roadrunner
       dockerfile: Dockerfile-roadrunner
+    networks:
+      - grpc-network
     ports:
       - 2000:2000
     volumes:
@@ -69,3 +75,6 @@ services:
 #      PMA_PORT: 3306
 #    depends_on:
 #      - mysql
+networks:
+  grpc-network:
+    name: 'grpc-network'

@@ -1,6 +1,6 @@
 # GRPC -CLIENT
 
-How to implement gRPC on the client side - PHP EDITION
+How to implement gRPC on the client side - PHP
 ## Installation
 
 This example is written inside Dockercompose file. Just follow provided steps
@@ -51,7 +51,13 @@ protoc --plugin=protoc-gen-php-grpc=/grpc/cmake/build/grpc_php_plugin \
        --php-grpc_out=./generated \
        proto/user.proto
 ```
-
+## Composer dependencies
+``` json lines
+    "require" : {
+        "google/protobuf": "^3.24",
+        "grpc/grpc": "^1.52",
+    },
+```
 ## Notes
 * You have to do this in root of ur docker container / file <br />
 * Make sure that grpc_php_plugin is executable!<br />

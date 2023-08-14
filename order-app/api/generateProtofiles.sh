@@ -6,4 +6,3 @@ protoc --plugin=protoc-gen-php-grpc=/grpc/cmake/build/grpc_php_plugin \
        --php_out=./generated \
        --php-grpc_out=./generated \
        proto/user.proto
-

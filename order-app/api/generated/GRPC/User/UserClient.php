@@ -1,11 +1,11 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace GRPC\UserGRPC;
+namespace GRPC\User;
 
 /**
  */
-class UserServiceClient extends \Grpc\BaseStub {
+class UserClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -17,16 +17,16 @@ class UserServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \GRPC\UserGRPC\GetUserByTokenRequest $argument input argument
+     * @param \GRPC\User\GetUserByTokenRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function getUserByToken(\GRPC\UserGRPC\GetUserByTokenRequest $argument,
+    public function getUserByToken(\GRPC\User\GetUserByTokenRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/user.UserService/getUserByToken',
+        return $this->_simpleRequest('/grpc.user.User/getUserByToken',
         $argument,
-        ['\GRPC\UserGRPC\UserResponse', 'decode'],
+        ['\GRPC\User\UserResponse', 'decode'],
         $metadata, $options);
     }
 

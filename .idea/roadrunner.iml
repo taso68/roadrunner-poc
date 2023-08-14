@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/user-app/api" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/user-app/grpc-server" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/user-app/grpc-server/generated" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/order-app/api/app" isTestSource="false" packagePrefix="App" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
